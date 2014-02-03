@@ -62,13 +62,19 @@ means= [vectors[200],vectors[350],vectors[170],vectors[300],vectors[25],vectors[
 #setup the initial means
 #currently testing with no inital means, uncomment below to change this
 clusterer = cluster.KMeansClusterer(10, cosine_distance)#,initial_means=means)
-
-clusters = clusterer.cluster(vectors, True, trace=True)
-#go cluster with kmeans
-print'clustering done'
-print 'Clustered:', vectors
-print 'As:', clusters
-print 'Means:', clusterer.means()
-#clusters.plot()
+clusters=[]
+#clusters = clusterer.cluster(vectors, True, trace=True)
+for i in xrange(0,10):
+   clusters.append( clusterer.cluster(vectors, True, trace=True))
+   #go cluster with kmeans
+   print'clustering done'
+   print 'Clustered:', vectors
+   print 'As:', clusters[i]
+   print 'Means:', clusterer.means()
+   #clusters.plot()
+#for c in clusters:
+ #   c.means.sort()
+#for i in xrange(0,10):
+    
 
 
